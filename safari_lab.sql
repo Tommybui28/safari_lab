@@ -48,4 +48,9 @@ INSERT INTO assignments(day, enclosures_id, employee_id) VALUES ('Thursday', 2, 
 INSERT INTO assignments(day, enclosures_id, employee_id) VALUES ('Friday', 3, 1);
 
 
- -- SELECT * FROM animals WHERE animals.enclosures_id = 1
+SELECT * FROM animals WHERE animals.enclosures_id = 1
+
+SELECT s.name AS staff_name
+FROM assignments a
+JOIN staffs s ON a.employee_id = s.id
+WHERE a.enclosures_id = (SELECT id FROM enclosures WHERE name = 'big cat field');
